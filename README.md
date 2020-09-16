@@ -9,5 +9,9 @@ The environment is deterministic
 The aim:
 to train agents which through communication with the others, collectively:
 
-* avoid conflicts and simultaneously
-* minimize the total priority weighted delay
+* avoid **conflicts** and simultaneously
+* minimize the total **priority weighted delay**
+
+## The environment
+
+The used environment is the one developed [here](https://github.com/nima-siboni/multi-agent-trains-env).
