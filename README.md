@@ -24,6 +24,7 @@ The problem to solve is to solve the
 
 Here we have assumed that the communication between the agents are cheap in the simulated environment, but we would like to avoid that as much as possible in the execution phase.
 
+here we relax the assumption that during the execution the agent only has access to its own state which is assumed in https://arxiv.org/pdf/1706.02275.pdf
 ## The environment
 
 The used environment is the [multi-agent-trains-env](https://github.com/nima-siboni/multi-agent-trains-env) which is developed specifically to a RL-friendly simulation environment.
