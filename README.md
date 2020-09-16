@@ -14,4 +14,6 @@ to train agents which through communication with the others, collectively:
 
 ## The environment
 
-The used environment is the one developed [here](https://github.com/nima-siboni/multi-agent-trains-env).
+The used environment is the [multi-agent-trains-env](https://github.com/nima-siboni/multi-agent-trains-env) which is developed specifically to a RL-friendly simulation environment.
+
+Here, the major modification introduced to this environment concerns the reward engineering. In the original implementation both of the agents recieved a large negative reward as soon as a conflict happened. With a slight modificition, here only the agent which enters into a currently occupied track reccieves the negative reward. 
