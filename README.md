@@ -15,9 +15,11 @@ to train agents which through communication with the others, collectively:
 ## The MARL approach
 
 The problem to solve is to solve the
-A frequently occuring bottleneck in multi-agent system is the *amount* of the data they can communicate on the timescale which is relevant for the decision making. This is a problem both in cases where the agents are separated in real world or in-silico across different computational nodes (of a distributed system).
+* A frequently occuring bottleneck in multi-agent system is the *amount* of the data they can communicate on the timescale which is relevant for the decision making. This is a problem both in cases where the agents are separated in real world or in-silico across different computational nodes (of a distributed system). facilite the amount of the communicated data, where the agents learn what sort of information they should communicate.
 
-facilite the amount of the communicated data, where the agents learn what sort of information they should communicate.
+* Here we aimed at compeletly decentralized system, with no *super-agent* which decides for on behalve the agents during the execution time . 
+
+Here we have assumed that the communication between the agents are cheap in the simulated environment, but we would like to avoid that as much as possible in the execution phase.
 
 ## The environment
 
