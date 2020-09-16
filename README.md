@@ -12,6 +12,13 @@ to train agents which through communication with the others, collectively:
 * avoid **conflicts** and simultaneously
 * minimize the total **priority weighted delay**
 
+## The MARL approach
+
+The problem to solve is to solve the
+A frequently occuring bottleneck in multi-agent system is the *amount* of the data they can communicate on the timescale which is relevant for the decision making. This is a problem both in cases where the agents are separated in real world or in-silico across different computational nodes (of a distributed system).
+
+facilite the amount of the communicated data, where the agents learn what sort of information they should communicate.
+
 ## The environment
 
 The used environment is the [multi-agent-trains-env](https://github.com/nima-siboni/multi-agent-trains-env) which is developed specifically to a RL-friendly simulation environment.
