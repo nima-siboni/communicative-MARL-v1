@@ -17,7 +17,21 @@ Here, we aim at solving this problem starting from any state of the system (rega
 
 ## The MARL approach
 
-The approach taken here can be considered as a semi-independent execution with semi-centeralized learning, as explained in the followings. The practical benefits of this approach is highlighted at the end of this section.
+One route to MARL is to compose a global agent which determines the actions of all the agents based on the global state of the system. Such a fully centeralized approach is simple to implement and the best affordable approach considering the stability and convergence. Essentially such an approach converts the multi-agent problem to a single agent problem and all the techniques developed for single RL can be used here.
+
+to make the convergence and stability of theapproaches where the single agent is much more complicated, i.e. the state 
+
+A common challenge to MARL is thatThe approach taken here can be considered as a semi-independent execution with semi-centeralized learning, as explained in the followings. The practical benefits of this approach is highlighted at the end of this section. 
+
+## Learning
+
+During the learning process, each agent learns independently from the rewards it gets for its actions knowing the state of all other agents. In other words, during the learning the states of other agents are presented to each agent. This is, generally speaking, problematic if the full state of all the agents are passed around:
+
+* The DNN of each agent grows significantly 
+
+as the DNNs for each agent grows rapidly 
+
+are, the information of each agent is 
 
 ## Execution 
 
