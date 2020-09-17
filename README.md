@@ -12,7 +12,25 @@ to train agents which through communication with the others, collectively:
 * avoid **conflicts** and simultaneously
 * minimize the total **priority weighted delay**
 
-Here, we aim at solving this problem starting from any state of the system (regardless of all the previously happened delays).
+Here, we aim at solving this problem starting from any state of the system (regardless of all the previously happened delays). We consider a multi-agent RL method which can be categorized as version of a centeralized learning / decenteralized execution, where during the execution some minimal albeit essential information is passed between the agents which enables them to coordinate better.  The details of the chosen algorithm, it advantages and short-comings are presented in details at the end of this document. Let's first start with the obtained results.
+
+
+## The environment
+
+The used environment is the [multi-agent-trains-env](https://github.com/nima-siboni/multi-agent-trains-env) which is developed specifically to a RL-friendly simulation environment.
+
+Here, the major modification introduced to this environment concerns the reward engineering. In the original implementation both of the agents recieved a large negative reward as soon as a conflict happened. With a slight modificition, here only the agent which enters into a currently occupied track reccieves the negative reward. 
+
+## Future steps
+
+* Here agents at optimizing the objectives *solely* based on their current state. This means that decisions are made regardless of delays occured prior to the current time, and also **no forcast of future delays**. An interesting extension of the current approach would be to add the delay predict ability to agents. The predicted future delays can be used together with the current state for making better decisions. This can be approached using common AI/non-AI approaches for forcasting sequences of events. 
+
+This makes sense for the train system, as if a technical problem leads to a lets say blockage of a segment, the agent
+
+* It is very interesting to figure out what agent have learned to communicate. Can all the communication networks be replaced by only one communication network, given that the system is homogenous enough?
+
+* Coding: a cleaner separation of the sub-networks of each agent, by explicit separation of the different networks (partially done in ```agent-under-construction.py```
+
 
 
 ## The MARL approach
@@ -43,28 +61,16 @@ In this approach, the we extract of the above mentioned information using a (rat
 
 ## Execution 
 
-During the execution the i-th agent makes its decision based on its own state plus some information which is communicated from other agents. In other words, similar to the ..., we establish a comminucation channel between agents. This is similar to ... wh, we do not pass the whole state (observation) of the other agents to this agent, but rather only a small volume of processed/condensed information is passed to it. What is passed to from each agent to the other agents is learned during the training.
+As explained above, each agent needs to have the state of all other agents, condense them through the communication networks, and use them together with its own state to finally take an action. This requires that before each step all the agents exchange their states with each other, which is one the bottlenecks of a super-agent approach which we want to avoid. 
+
+One can reduce the amount of communications between the agents significantly in the above setting, without loss of information. The key point is that to take an action, each agent only requires the *outputs* of its the communication networks. Only to obtain these outputs, the agent requires to know the complete state of other agents which leads to huge amount of data exchange. Instead, in each case the agents can process their state before sending it to their communciation partners. This way not the whole state of an agent but only the output of its communication networks are sent around. This is exactly the information which each agent needs from the other agents. 
+
+Such a trick requires that the communication networks are exchanged between the agents at the end of the training.
 
 
-.  In other words, the *amount* of the data they can communicate on the timescale which is relevant for the decision making.
-## Learning
-* 
-The problem to solve is to solve the
-* A frequently occuring bottleneck in multi-agent system is the *amount* of the data they can communicate on the timescale which is relevant for the decision making. This is a problem both in cases where the agents are separated in real world or in-silico across different computational nodes (of a distributed system). facilite the amount of the communicated data, where the agents learn what sort of information they should communicate.
 
-* Here we aimed at compeletly decentralized system, with no *super-agent* which decides for on behalve the agents during the execution time . 
 
-Here we have assumed that the communication between the agents are cheap in the simulated environment, but we would like to avoid that as much as possible in the execution phase.
 
-here we relax the assumption that during the execution the agent only has access to its own state which is assumed in https://arxiv.org/pdf/1706.02275.pdf
-## The environment
+## References
 
-The used environment is the [multi-agent-trains-env](https://github.com/nima-siboni/multi-agent-trains-env) which is developed specifically to a RL-friendly simulation environment.
-
-Here, the major modification introduced to this environment concerns the reward engineering. In the original implementation both of the agents recieved a large negative reward as soon as a conflict happened. With a slight modificition, here only the agent which enters into a currently occupied track reccieves the negative reward. 
-
-## Future steps
-
-* Here agents at optimizing the objectives *solely* based on their current state. This means that decisions are made regardless of delays occured prior to the current time, and also **no forcast of future delays**. An interesting extension of the current approach would be to add the delay predict ability to agents. The predicted future delays can be used together with the current state for making better decisions. This can be approached using common AI/non-AI approaches for forcasting sequences of events. 
-
-This makes sense for the train system, as if a technical problem leads to a lets say blockage of a segment, the agent
+[1](https://arxiv.org/pdf/1706.02275.pdf)-[2](https://arxiv.org/pdf/1605.06676.pdf)
