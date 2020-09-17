@@ -17,8 +17,15 @@ Here, we aim at solving this problem starting from any state of the system (rega
 
 ## The MARL approach
 
-One route to MARL is to compose a global agent which determines the actions of all the agents based on the global state of the system. Such a fully centeralized approach is simple to implement and the best affordable approach considering the stability and convergence. Essentially such an approach converts the multi-agent problem to a single agent problem and all the techniques developed for single RL can be used here.
+One route to MARL is to compose a global agent which determines the actions of all the agents based on the global state of the system. Such a fully centeralized approach is simple to implement and the best affordable approach considering the stability and convergence. Essentially such an approach converts the multi-agent problem to a single agent problem and all the techniques developed for single RL can be used here. One can benefit from convergence (to optimal and sub-optimal solutions) and stability of the single agent algorithms. An example of such a approach is implemented here in [narrow-corridor-ai] (https://github.com/nima-siboni/narrow-corridor-ai), where the globally optimal solution is obtained using a tabular value based method.
 
+
+An example of 
+
+Although the aforementioned approach can be deployed to solve many multi-agent RL problems (for an example , the 
+
+
+There are a number of draw
 to make the convergence and stability of theapproaches where the single agent is much more complicated, i.e. the state 
 
 A common challenge to MARL is thatThe approach taken here can be considered as a semi-independent execution with semi-centeralized learning, as explained in the followings. The practical benefits of this approach is highlighted at the end of this section. 
