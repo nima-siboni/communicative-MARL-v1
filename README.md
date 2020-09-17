@@ -19,16 +19,25 @@ Here, we aim at solving this problem starting from any state of the system (rega
 
 One route to MARL is to compose a global agent which determines the actions of all the agents based on the global state of the system. Such a fully centeralized approach is simple to implement and the best affordable approach considering the stability and convergence. Essentially such an approach converts the multi-agent problem to a single agent problem and all the techniques developed for single RL can be used, and one can benefit from the convergence (to optimal and sub-optimal solutions) and stability of the single agent algorithms. An example of such an approach is implemented here in [narrow-corridor-ai](https://github.com/nima-siboni/narrow-corridor-ai), where the globally optimal solution is obtained using a tabular value based method.
 
-Although such a centeralized can be deployed to solve many multi-agent RL problems, in practice this is not always feasible.  One common challenge is that the super-agent becomes large and unfeasible to train as the number of agents grow (yet another example of curse-of-dimensionality!). Another challenge for this approach occures during the execution phase, namely such a super-agent requires all the information of all the agents to make a decision. This means a large volume of data exchange with the environment for each decision making incident, which might make the usage of RL impossible in settings where the required infrastructure does not exist or the data communication is slower than the required decision making process. These challenges encourage devising new multi-agent algorithms where the learning and the execution phases are less centeralized. 
+Although such a centeralized can be used to solve many multi-agent RL problems, in practice this is not always feasible, as explained here: 
+
+* One common challenge is that the super-agent becomes large and unfeasible to train as the number of agents grow (yet another example of curse-of-dimensionality!). 
+
+* Another challenge for this approach occures during the execution phase, namely such a super-agent requires all the information of all the agents to make a decision. This means a large volume of data exchange with the environment for each decision making incident, which might make the usage of RL impossible in settings where the required infrastructure does not exist or the data communication is slower than the required decision making process. 
+
+These challenges encourage devising new multi-agent algorithms where the learning and the execution phases are less centeralized. A successful example of such methods is the centralized learning decenteralized execution approach proposed in Refs. [[1](https://arxiv.org/pdf/1706.02275.pdf)-[2](https://arxiv.org/pdf/1605.06676.pdf)]. The decenteralized execution, here, means that each agent has only access to its own state (which solve the communication challenge mentioned above). To incorproate the multi-agency nature of the problem, the learning is centeralized and the agents have access to each others states (and actions). 
+
 
 The approach we present and implement here can be considered as a semi-independent execution with semi-centeralized learning, as explained in the followings.
 
 
 ## Learning
 
-During the learning process, each agent learns independently from the rewards it gets for its actions knowing the state of all other agents. In other words, during the learning phase, the states of other agents are presented to each agent. This is essentially similar to the approach taken in Refs. [[1](https://arxiv.org/pdf/1706.02275.pdf)-[2](https://arxiv.org/pdf/1605.06676.pdf)].
+During the learning process, each agent learns independently from the rewards it gets for its actions knowing the state of all other agents. An essential element here is that during the learning phase, the states of all other agents are presented to each agent. This, if done naively, could lead to the curse of dimensionality problem, as explained above. 
 
-for the 
+This is essentially similar to the approach taken in Refs. [[1](https://arxiv.org/pdf/1706.02275.pdf)-[2](https://arxiv.org/pdf/1605.06676.pdf)]. In these references, the information of the other agents are used only during training, i.e. for the Actor in 
+
+For the 
 * The DNN of each agent grows significantly 
 
 as the DNNs for each agent grows rapidly 
