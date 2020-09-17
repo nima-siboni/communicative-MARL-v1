@@ -17,6 +17,14 @@ Here, we aim at solving this problem starting from any state of the system (rega
 
 ## The MARL approach
 
+The approach taken here can be considered as a semi-independent execution with semi-centeralized learning, as explained in the followings. The practical benefits of this approach is highlighted at the end of this section.
+
+## Execution 
+
+During the execution the i-th agent makes its decision based on its own state plus some information which is communicated from other agents. In other words, similar to the ..., we establish a comminucation channel between agents. This is similar to ... wh, we do not pass the whole state (observation) of the other agents to this agent, but rather only a small volume of processed/condensed information is passed to it. What is passed to from each agent to the other agents is learned during the training.
+
+## Learning
+* 
 The problem to solve is to solve the
 * A frequently occuring bottleneck in multi-agent system is the *amount* of the data they can communicate on the timescale which is relevant for the decision making. This is a problem both in cases where the agents are separated in real world or in-silico across different computational nodes (of a distributed system). facilite the amount of the communicated data, where the agents learn what sort of information they should communicate.
 
