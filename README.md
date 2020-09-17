@@ -93,7 +93,9 @@ This new architecture requires that the communication networks are exchanged be
 
 <img src="./statics/network-during-exec.png" width="80%">
 
+# Cons and Pros / Further tests
 
+To be filled.
 
 ## References
 
