@@ -17,23 +17,18 @@ Here, we aim at solving this problem starting from any state of the system (rega
 
 ## The MARL approach
 
-One route to MARL is to compose a global agent which determines the actions of all the agents based on the global state of the system. Such a fully centeralized approach is simple to implement and the best affordable approach considering the stability and convergence. Essentially such an approach converts the multi-agent problem to a single agent problem and all the techniques developed for single RL can be used here. One can benefit from convergence (to optimal and sub-optimal solutions) and stability of the single agent algorithms. An example of such a approach is implemented here in [narrow-corridor-ai](https://github.com/nima-siboni/narrow-corridor-ai), where the globally optimal solution is obtained using a tabular value based method.
+One route to MARL is to compose a global agent which determines the actions of all the agents based on the global state of the system. Such a fully centeralized approach is simple to implement and the best affordable approach considering the stability and convergence. Essentially such an approach converts the multi-agent problem to a single agent problem and all the techniques developed for single RL can be used, and one can benefit from the convergence (to optimal and sub-optimal solutions) and stability of the single agent algorithms. An example of such an approach is implemented here in [narrow-corridor-ai](https://github.com/nima-siboni/narrow-corridor-ai), where the globally optimal solution is obtained using a tabular value based method.
 
+Although such a centeralized can be deployed to solve many multi-agent RL problems, in practice this is not always feasible.  One common challenge is that the super-agent becomes large and unfeasible to train as the number of agents grow (yet another example of curse-of-dimensionality!). Another challenge for this approach occures during the execution phase, namely such a super-agent requires all the information of all the agents to make a decision. This means a large volume of data exchange with the environment for each decision making incident, which might make the usage of RL impossible in settings where the required infrastructure does not exist or the data communication is slower than the required decision making process. These challenges encourage devising new multi-agent algorithms where the learning and the execution phases are less centeralized. 
 
-An example of 
+The approach we present and implement here can be considered as a semi-independent execution with semi-centeralized learning, as explained in the followings.
 
-Although the aforementioned approach can be deployed to solve many multi-agent RL problems (for an example , the 
-
-
-There are a number of draw
-to make the convergence and stability of theapproaches where the single agent is much more complicated, i.e. the state 
-
-A common challenge to MARL is thatThe approach taken here can be considered as a semi-independent execution with semi-centeralized learning, as explained in the followings. The practical benefits of this approach is highlighted at the end of this section. 
 
 ## Learning
 
-During the learning process, each agent learns independently from the rewards it gets for its actions knowing the state of all other agents. In other words, during the learning the states of other agents are presented to each agent. This is, generally speaking, problematic if the full state of all the agents are passed around:
+During the learning process, each agent learns independently from the rewards it gets for its actions knowing the state of all other agents. In other words, during the learning phase, the states of other agents are presented to each agent. This is essentially similar to the approach taken in Refs. [[1](https://arxiv.org/pdf/1706.02275.pdf)-[2](https://arxiv.org/pdf/1605.06676.pdf))]
 
+for the 
 * The DNN of each agent grows significantly 
 
 as the DNNs for each agent grows rapidly 
