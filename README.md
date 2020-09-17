@@ -93,9 +93,16 @@ This new architecture requires that the communication networks are exchanged be
 
 <img src="./statics/network-during-exec.png" width="80%">
 
-# Cons and Pros / Further tests
+## Cons and Pros / Further tests
 
 To be filled.
+
+
+## How to use 
+
+To be filled in details, but the short version is:
+
+Run ```learn-and-experience.py``` for the agents to learn, and ```simulate.py``` to run simulations for the random, the greedy, and trained agents! Both of the scripts are well-commented. 
 
 ## References
 
