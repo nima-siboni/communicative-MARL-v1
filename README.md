@@ -22,8 +22,7 @@ For simplicity, I have considered only two trains.
 
 ## Results
 
-The results of the simulations for a two-trains system are demonstrated here. As depicted by the numbers on top of the trains, one of them has 10 times larger priority  compared to the other one (determined here simply by the number of passengers). As soon as the trains cause a conflict the colors of the agents turn to red.
-
+The results of the simulations for a two-trains system are demonstrated here. In each of the demonstration, the priority of the agents are depicted by the numbers  written on top of them, and as soon as the trains cause a conflict their colors turn to red. As an extreme case, here we have chosen the number of passangers such that one of the trains has 10 times larger priority  compared to the other one.
 To have a refernce, we first present simulation results where
 * the agents move randomly 
 
