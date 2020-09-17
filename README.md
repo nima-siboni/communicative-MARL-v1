@@ -99,6 +99,6 @@ To be filled.
 
 ## References
 
-[1] [Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments, R. Loewe, et al (2020)](https://arxiv.org/pdf/1706.02275.pdf)
+[1] [Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments](https://arxiv.org/pdf/1706.02275.pdf), R. Loewe, et al (2020).
 
-[2] [Learning to Communicate with Deep Multi-Agent Reinforcement Learning, J. N. Foerster, et al (2016)](https://arxiv.org/pdf/1605.06676.pdf)
+[2] [Learning to Communicate with Deep Multi-Agent Reinforcement Learning](https://arxiv.org/pdf/1605.06676.pdf), J. N. Foerster, et al (2016).
