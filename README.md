@@ -1,25 +1,28 @@
 # communicative-MARL-v1
-A multi-agent RL implementation is presented where the agents learn *what* to communicate with each other to achieve their goals optimally. This method is tests on a system of trains; the trains shouldachieve the following goals collectively through inter-communications:
+
+A multi-agent RL implementation is presented where the agents learn *what* to communicate with each other to achieve their goals optimally. 
+
+This method is tested on a system of trains; the trains should achieve the following goals collectively through inter-communications:
 
 * avoid **conflicts** and simultaneously
 * minimize the total **priority weighted delay**
 
-Here, we aim at solving this problem starting from any state of the system (regardless of all the previously happened delays). 
+The priorities of the trains are proportional to the number of the passengers they have. Here, we solving this problem starting from any state of the system (regardless of all the previously happened delays). 
 
-The multi-agent RL method used here can be categorized as version of a centeralized learning / decenteralized execution, where during the execution some minimal albeit essential information is passed between the agents. This information enables the agents to coordinate better. The details of the chosen algorithm, it advantages and short-comings are presented in details at the end of this document. Let's first start with the obtained results.
+The multi-agent RL method used here can be categorized as version of a centeralized learning / decenteralized execution, where during the execution some minimal albeit essential information is passed between the agents. This information enables the agents to coordinate between each other. The details of the chosen algorithm, it advantages and short-comings are presented in details at the end of this document. Let's first start with the environment/rewards and the obtained results.
 
 
 ## The environment
 
-The used environment is the [multi-agent-trains-env](https://github.com/nima-siboni/multi-agent-trains-env) which is developed specifically to a RL-friendly simulation environment.
+The environment used here is a modified version of the [multi-agent-trains-env](https://github.com/nima-siboni/multi-agent-trains-env) which is an environment developed to be specifically RL-friendly.
 
-Here, the major modification introduced to this environment concerns the reward engineering. In the original implementation both of the agents recieved a large negative reward as soon as a conflict happened. With a slight modificition, here only the agent which enters into a currently occupied track reccieves the negative reward. Also the magnitude of the reward is larger if the low priority train blocks the way for the high priority train.
+The major introduced modification concerns the reward engineering. In the original implementation, both of the agents recieve a large negative reward as soon as a conflict happens. With a slight modificition, here only the agent which enters into a currently occupied track recieves the negative reward. Also the magnitude of the reward is larger if the low-priority train blocks the way for the high-priority train. 
 
 For simplicity, I have considered only two trains.
 
 ## Results
 
-Here the results of the simulations for two trains are shown. As depicted by the numbers on top of the trains, one of them has 10 times larger priority  compared to the other one (determined here simply by the number of passengers). As soon as the trains cause a conflict the colors of the agents turn to red.
+The results of the simulations for a two-trains system are demonstrated here. As depicted by the numbers on top of the trains, one of them has 10 times larger priority  compared to the other one (determined here simply by the number of passengers). As soon as the trains cause a conflict the colors of the agents turn to red.
 
 To have a refernce, we first present simulation results where
 * the agents move randomly 
