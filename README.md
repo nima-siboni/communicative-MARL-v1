@@ -27,17 +27,17 @@ The results of the simulations for a two-trains system are demonstrated here. In
 To have a reference for the effect of the training, we first present simulation results where
 * the agents move randomly 
 
-<img src="./performance-and-animations/animations-random-walk/animation.gif" width="50%">
+<img src="./performance-and-animations/animations-random-walk/animation.gif" width="60%">
 
 * the agents are trained to get to their destinations as fast possible:
 
-<img src="./performance-and-animations/animations-as-fast-as-possible/animation.gif" width="50%">
+<img src="./performance-and-animations/animations-as-fast-as-possible/animation.gif" width="60%">
 
 Not surprisngly, in the random walk case the delays are large and in the case where the agents greedily want to get to their destination, the conflicts are guaranteed.
 
 Here is a simulation of the behavior of the agents after training.
 
-<img src="./performance-and-animations/animations/animation.gif" width="50%">
+<img src="./performance-and-animations/animations/animation.gif" width="60%">
 
 One can see that interestingly the agents both arrive at the junction, the low-priority train waits for the high-priority agent to pass the middle area, and then continues as fast as possible to its destination.
 
@@ -74,7 +74,7 @@ The approach we present and implement here can be considered as a semi-independe
 
 During the learning process, each agent learns independently,  based on the rewards it gets for its actions knowing the state of all other agents. An essential element here is that during the learning phase, the states of all other agents are presented to the agent. This is essentially similar to the approach taken in Refs. [[1](https://arxiv.org/pdf/1706.02275.pdf)-[2](https://arxiv.org/pdf/1605.06676.pdf)]. This step, if done naively, could lead to the curse of dimensionality problem, as explained above. To avoid that, we consider a network similar to the one shown below.
 
-<img src="./statics/network-during-training.png" width="80%">
+<img src="./statics/network-during-training.png" width="90%">
 
 In this architecture, the input for each agent's network is not a concatenation of all the states of all the agents.  Each  agent makes the decision based  on (i) its own state and (ii) processed information about the other agents (i.e. on the essential information extracted from the state of the others).  An important question would arise at this point: what is the condensed essential information composed of? Do we need to know that and hard-encode it in the solution? As explained in the following, we avoid this and let the agents learn by themselves what is the important information to be exchanged between each pair.
 
@@ -91,7 +91,7 @@ One can reduce the amount of communications between the agents significantly in 
 
 This new architecture requires that the communication networks are exchanged between the agents at the end of the training. The picture below shows that this structural changes for an agent.
 
-<img src="./statics/network-during-exec.png" width="80%">
+<img src="./statics/network-during-exec.png" width="90%">
 
 ## Cons and Pros / Further tests
 
