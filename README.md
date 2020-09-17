@@ -33,7 +33,11 @@ The approach we present and implement here can be considered as a semi-independe
 
 ## Learning
 
-During the learning process, each agent learns independently from the rewards it gets for its actions knowing the state of all other agents. An essential element here is that during the learning phase, the states of all other agents are presented to each agent. This, if done naively, could lead to the curse of dimensionality problem, as explained above. 
+During the learning process, each agent learns independently from the rewards it gets for its actions knowing the state of all other agents. An essential element here is that during the learning phase, the states of all other agents are presented to each agent. This is essentially similar to the approach taken in Refs. [[1](https://arxiv.org/pdf/1706.02275.pdf)-[2](https://arxiv.org/pdf/1605.06676.pdf)]. This step, if done naively, could lead to the curse of dimensionality problem, as explained above. To avoid that, we consider a network similar to the one shown below.
+
+
+In this architecture, the input for each agent's network is not a concatenation of all the states of all the agents; each  agent decides on its own state plus a processed information about the other agents (i.e. on the essential information extracted from the state of the others). This makes the network for each agent simpler than a network which decides on the global information directly. An essential part of this approach is how to find the essential information mentioned before. Here, this is done by a (small) DNN which is used to convert the state of each agent to a lower dimensional information, and importantly, this network is trained during the training phase as a part of each agent. 
+
 
 This is essentially similar to the approach taken in Refs. [[1](https://arxiv.org/pdf/1706.02275.pdf)-[2](https://arxiv.org/pdf/1605.06676.pdf)]. In these references, the information of the other agents are used only during training, i.e. for the Actor in 
 
