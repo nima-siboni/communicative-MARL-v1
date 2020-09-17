@@ -19,7 +19,35 @@ Here, we aim at solving this problem starting from any state of the system (rega
 
 The used environment is the [multi-agent-trains-env](https://github.com/nima-siboni/multi-agent-trains-env) which is developed specifically to a RL-friendly simulation environment.
 
-Here, the major modification introduced to this environment concerns the reward engineering. In the original implementation both of the agents recieved a large negative reward as soon as a conflict happened. With a slight modificition, here only the agent which enters into a currently occupied track reccieves the negative reward. 
+Here, the major modification introduced to this environment concerns the reward engineering. In the original implementation both of the agents recieved a large negative reward as soon as a conflict happened. With a slight modificition, here only the agent which enters into a currently occupied track reccieves the negative reward. Also the magnitude of the reward is larger if the low priority train blocks the way for the high priority train.
+
+For simplicity, I have considered only two trains.
+
+## Results
+
+Here the results of the simulations for two trains are shown. As depicted by the numbers on top of the trains, one of them has 10 times larger priority  compared to the other one (determined here simply by the number of passengers). As soon as the trains cause a conflict the colors of the agents turn to red.
+
+To have a refernce, we first present simulation results where
+* the agents move randomly 
+
+<img src="./performance-and-animations/animations-random-walk/animation.gif" width="50%">
+
+* the agents are trained to get to their destinations as fast possible:
+
+<img src="./performance-and-animations/animations-as-fast-as-possible/animation.gif" width="50%">
+
+Not surprisngly the in the random walk case the delays are large and in the case where the agents greedily want to get to their destination, the conflicts are guaranteed.
+
+Here is a simulation of the behavior of the agents after training.
+
+<img src="./performance-and-animations/animations/animation.gif" width="50%">
+
+One can see that interestingly the agents both arrive at the junction, the low-prioty train waits for the high-priority agent to pass the middle area, and then continues as fast as possible to its destination.
+
+
+
+###
+
 
 ## Future steps
 
