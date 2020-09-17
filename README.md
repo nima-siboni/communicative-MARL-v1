@@ -1,18 +1,12 @@
 # communicative-MARL-v1
-A multi-agent RL where the agents learn *what* to communicate with each other.
-
-The assumptions:
-fully observable environment
-it is a markov process
-The environment is deterministic
-
-The aim:
-to train agents which through communication with the others, collectively:
+A multi-agent RL implementation is presented where the agents learn *what* to communicate with each other to achieve their goals optimally. This method is tests on a system of trains; the trains shouldachieve the following goals collectively through inter-communications:
 
 * avoid **conflicts** and simultaneously
 * minimize the total **priority weighted delay**
 
-Here, we aim at solving this problem starting from any state of the system (regardless of all the previously happened delays). We consider a multi-agent RL method which can be categorized as version of a centeralized learning / decenteralized execution, where during the execution some minimal albeit essential information is passed between the agents which enables them to coordinate better.  The details of the chosen algorithm, it advantages and short-comings are presented in details at the end of this document. Let's first start with the obtained results.
+Here, we aim at solving this problem starting from any state of the system (regardless of all the previously happened delays). 
+
+The multi-agent RL method used here can be categorized as version of a centeralized learning / decenteralized execution, where during the execution some minimal albeit essential information is passed between the agents. This information enables the agents to coordinate better. The details of the chosen algorithm, it advantages and short-comings are presented in details at the end of this document. Let's first start with the obtained results.
 
 
 ## The environment
