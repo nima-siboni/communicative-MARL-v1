@@ -45,10 +45,6 @@ Here is a simulation of the behavior of the agents after training.
 One can see that interestingly the agents both arrive at the junction, the low-prioty train waits for the high-priority agent to pass the middle area, and then continues as fast as possible to its destination.
 
 
-
-###
-
-
 ## Future steps
 
 * Here agents at optimizing the objectives *solely* based on their current state. This means that decisions are made regardless of delays occured prior to the current time, and also **no forcast of future delays**. An interesting extension of the current approach would be to add the delay predict ability to agents. The predicted future delays can be used together with the current state for making better decisions. This can be approached using common AI/non-AI approaches for forcasting sequences of events. 
@@ -81,6 +77,7 @@ The approach we present and implement here can be considered as a semi-independe
 
 During the learning process, each agent learns independently from the rewards it gets for its actions knowing the state of all other agents. An essential element here is that during the learning phase, the states of all other agents are presented to each agent. This is essentially similar to the approach taken in Refs. [[1](https://arxiv.org/pdf/1706.02275.pdf)-[2](https://arxiv.org/pdf/1605.06676.pdf)]. This step, if done naively, could lead to the curse of dimensionality problem, as explained above. To avoid that, we consider a network similar to the one shown below.
 
+<img src="./statics/network-during-training.png" width="80%">
 
 In this architecture, the input for each agent's network is not a concatenation of all the states of all the agents; each  agent decides on its own state plus a processed information about the other agents (i.e. on the essential information extracted from the state of the others). This can make the the network for each agent significantly simpler than a network which decides on the global information directly. This is also what we do here. A natural question which is essential to answer at this point is what is the essential information composed of? Do we need to know that and hard-endcode it in the solution? As explained in the following, we avoid this and let the agents learn by themselves what is the important information to be exchanged between each pair.
 
@@ -95,10 +92,14 @@ One can reduce the amount of communications between the agents significantly in 
 
 Such a trick requires that the communication networks are exchanged between the agents at the end of the training.
 
+<img src="./statics/network-during-exec.png" width="80%">
+
 
 
 
 
 ## References
 
-[1](https://arxiv.org/pdf/1706.02275.pdf)-[2](https://arxiv.org/pdf/1605.06676.pdf)
+[[1] Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments, R.Loewe, et al (2020)](https://arxiv.org/pdf/1706.02275.pdf)
+
+[[2] Learning to Communicate with Deep Multi-Agent Reinforcement Learning, J. N. Foerster, et al (2016)](https://arxiv.org/pdf/1605.06676.pdf)
