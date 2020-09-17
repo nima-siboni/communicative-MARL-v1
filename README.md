@@ -26,7 +26,7 @@ The approach we present and implement here can be considered as a semi-independe
 
 ## Learning
 
-During the learning process, each agent learns independently from the rewards it gets for its actions knowing the state of all other agents. In other words, during the learning phase, the states of other agents are presented to each agent. This is essentially similar to the approach taken in Refs. [[1](https://arxiv.org/pdf/1706.02275.pdf)-[2](https://arxiv.org/pdf/1605.06676.pdf))]
+During the learning process, each agent learns independently from the rewards it gets for its actions knowing the state of all other agents. In other words, during the learning phase, the states of other agents are presented to each agent. This is essentially similar to the approach taken in Refs. [[1](https://arxiv.org/pdf/1706.02275.pdf)-[2](https://arxiv.org/pdf/1605.06676.pdf)].
 
 for the 
 * The DNN of each agent grows significantly 
