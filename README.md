@@ -70,7 +70,7 @@ In the aforementioned approach, the elimination of the communication problem dur
 The approach we present and implement here can be considered as a semi-independent execution with semi-centeralized learning, as explained in the followings.
 
 
-## Learning
+### Learning phase
 
 During the learning process, each agent learns independently,  based on the rewards it gets for its actions knowing the state of all other agents. An essential element here is that during the learning phase, the states of all other agents are presented to the agent. This is essentially similar to the approach taken in Refs. [[1](https://arxiv.org/pdf/1706.02275.pdf)-[2](https://arxiv.org/pdf/1605.06676.pdf)]. This step, if done naively, could lead to the curse of dimensionality problem, as explained above. To avoid that, we consider a network similar to the one shown below.
 
@@ -83,7 +83,7 @@ In summary, each agent has two sub-network types:
 * a dense neural network (DNN) which condenses the information of other agents, i.e. **communication DNN**, and* the **decision-DNN** which takes the action based on the state of the agent and the output of the above mentioned communication DNNs.
 Given that the processed information of each agent would be much smaller than its state, we can keep the network of each agent relatively simple (significantly simpler than a network which decides on the global information directly). 
 
-## Execution 
+### Execution phase
 
 As explained above, each agent needs to have the state of all other agents, condense them through the communication networks, and use this information together with its own state to finally take an action. This requires that before each step all the agents exchange their states with each other, which is one the bottlenecks of a super-agent approach which we want to avoid. 
 
